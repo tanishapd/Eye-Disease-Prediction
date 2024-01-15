@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import cv2
-#from tensorflow import keras
 import os
 import joblib
 
@@ -9,7 +8,7 @@ model = joblib.load("C:/Users/KIIT/Desktop/eye disease(streamlit)/EYE DISEASE PR
 
 
 def classify_image(image_path):
-    # Preprocess the image as you did in your code
+    # Preprocess the image 
     image = cv2.imread(image_path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image = cv2.resize(image, (250, 250))
