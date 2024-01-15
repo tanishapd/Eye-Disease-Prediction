@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import cv2
+#from tensorflow import keras
 import os
 import joblib
 
@@ -8,7 +9,7 @@ model = joblib.load("C:/Users/KIIT/Desktop/eye disease(streamlit)/EYE DISEASE PR
 
 
 def classify_image(image_path):
-    # Preprocess the image 
+    # Preprocess the image
     image = cv2.imread(image_path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image = cv2.resize(image, (250, 250))
@@ -35,8 +36,15 @@ def main():
         pred_class = ''
         if st.button('Eye disease prediction Result'):
             pred_class = classify_image(image_path)
-
-        st.write(f'Predicted Class: {pred_class}')
+            
+            if pred_class == 0:
+               st.write(f'Predicted Class: glaucoma') 
+            elif pred_class == 1:
+                st.write(f'Predicted Class: diabetic_retinopathy') 
+            elif pred_class == 2:
+                st.write(f'Predicted Class: cataract') 
+            else :
+                st.write(f'Predicted Class: normal')
 
 if __name__ == '__main__':
     main()
