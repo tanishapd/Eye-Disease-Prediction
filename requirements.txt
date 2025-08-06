@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+seaborn
+tensorflow==2.14.0  
+opencv-python
+scikit-learn
+joblib
+tqdm
+streamlit
